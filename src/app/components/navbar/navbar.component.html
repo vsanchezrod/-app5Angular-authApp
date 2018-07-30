@@ -13,16 +13,19 @@
                 <a class="nav-link" [routerLink]="['precios']">Precios</a>
             </li>
 
-            <li class="nav-item" routerLinkActived="active">
+            <!-- Si el usuario está autenticado lo mostrará-->
+            <li class="nav-item" routerLinkActived="active" *ngIf="authService.isAuthenticated()">
                 <a class="nav-link" [routerLink]="['protegida']">Protegida</a>
             </li>
         </ul>
         <span class="navbar-text">
-            <button *ngIf="!authService.isAuthenticated()" (click)="login()" type="button" class="btn btn-outline-primary">
+            
+            <!-- Botones para LOGIN/LOGOUT-->
+            <button *ngIf="!authService.isAuthenticated()" (click)="login()" type="button" class="btn btn-outline-primary btn-sm">
                 LOGIN
             </button> 
 
-            <button *ngIf="authService.isAuthenticated()" (click)="logout()" type="button" class="btn btn-outline-primary">
+            <button *ngIf="authService.isAuthenticated()" (click)="logout()" type="button" class="btn btn-outline-primary btn-sm">
                 LOGOUT
             </button> 
         </span>
