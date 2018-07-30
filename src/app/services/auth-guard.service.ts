@@ -13,8 +13,6 @@ export class AuthGuardService implements CanActivate {
 
   constructor(private authService: AuthService) { }
 
-  // Implementar una función que devuelva true o false
-
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     // Esta función debe regresar true o false
 
